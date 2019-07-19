@@ -1,0 +1,5 @@
+# ignore dataset directories
+
+building_images/
+images/
+
