@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
-from find_similarity_function import find_similarity
+from lunet-kernel import comparator
 
 app = Flask(__name__)
 
@@ -25,7 +25,7 @@ def find_similarity_route():
     '''
     img1 = request.json['img1']
     img2 = request.json['img2']
-    sim = find_similarity(img1, img2)
+    sim = comparator(img1, img2)
     return jsonify({'similarity': sim}), 200
 
 if __name__ == "__main__":
