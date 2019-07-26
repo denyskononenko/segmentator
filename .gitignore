@@ -2,4 +2,11 @@
 
 building_images/
 images/
+res/
+label_box_data/
+.*
+!/.gitignore
 
+*.pdf
+*.dat
+		
