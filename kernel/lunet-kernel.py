@@ -69,22 +69,32 @@ def comparator(img1, img2):
     kp_base, desc_base = sift.detectAndCompute(canny1, None)
     kp, desc = sift.detectAndCompute(canny2, None)
     
-    # BFMatcher with default params
-    bf = cv2.BFMatcher()
-    matches = bf.knnMatch( desc, desc_base,  k=2 )
-    # Apply ratio test
-    good = []
-    for m,n in matches:
-        if m.distance < 0.95*n.distance:
-            good.append([m])
     
-    features_12 = [len(kp_base), len(kp)]
-    similarity = 100 * len(good) / len(matches)
+    # BFMatcher with default params
+    try:
+        bf = cv2.BFMatcher()
+        matches = bf.knnMatch( desc, desc_base,  k=2 )
+        # Apply ratio test
+        good = []
+        for m,n in matches:
+            if m.distance < 0.95*n.distance:
+                good.append([m])
+
+        print(len(matches))
+        if len(matches) != 0:
+            similarity = 100 * len(good) / len(matches)
+        else:
+            print("No matches")
+            similarity = 0.0
+    except Exception as e:
+        print(e)
+        similarity = 0.0
+        matches = []
     
     print("similarity: {}".format(similarity))
     print("matches {}".format(len(matches)))
-    print("length kp1 {}, length descr1 {}".format(len(kp), len(desc)))
-    print("length kp {}, length descr {}".format(len(kp_base), len(desc_base)))
+    #print("length kp1 {}, length descr1 {}".format(len(kp), len(desc)))
+    #print("length kp {}, length descr {}".format(len(kp_base), len(desc_base)))
     return float('{0:.2f}'.format(similarity))
 
 def matcher(img1, img2):
