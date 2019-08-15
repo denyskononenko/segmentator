@@ -7,13 +7,14 @@ Python pip:
 flask
 Flask==0.11
 flask-cors==3.0.7
-opencv-python==4.1.0.25
+opencv-python==3.4.2.16
 uwsgi
 matplotlib
 opencv-python
 keras
 tensorflow
 scikit-image
+ opencv-contrib-python==3.4.2.16
 
 
 run
