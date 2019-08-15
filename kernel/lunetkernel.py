@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 from skimage.io import imread
 from scipy import signal, ndimage
 
-path_model = "/home/image_similarity/segmentator/saved_models/lunet-model-300-epochs.h5"
-path_to_weights = "/home/image_similarity/segmentator/saved_models/UNet-params-300-epochs-new-data.h5"
+path_model = "/home/image-similarity/segmentator/saved_models/lunet-model-300-epochs.h5"
+path_to_weights = "/home/image-similarity/segmentator/saved_models/UNet-params-300-epochs-new-data.h5"
 
 def model_build(path_model, path_to_weights):
     """

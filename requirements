@@ -1,5 +1,20 @@
+system:
+
+sudo apt install -y libsm6 libxext6 python-tk
+
+
+Python pip:
 flask
 Flask==0.11
 flask-cors==3.0.7
 opencv-python==4.1.0.25
 uwsgi
+matplotlib
+opencv-python
+keras
+tensorflow
+scikit-image
+
+
+run
+/home/image-similarity/venv/local/bin/uwsgi --emperor /etc/uwsgi/vassals --uid www-data --gid www-data --daemonize /var/log/uwsgi/uwsgi-emperor.log --touch-reload=/home/image-similarity/touch-reload.ini
